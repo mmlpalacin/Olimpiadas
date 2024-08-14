@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('direccions', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedInteger('id_usuario');
+            $table->unsignedBigInteger('id_usuario');
             $table->string('direccion', 255);
             $table->string('ciudad', 100);
             $table->string('estado', 100);

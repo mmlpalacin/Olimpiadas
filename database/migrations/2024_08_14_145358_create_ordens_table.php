@@ -11,11 +11,10 @@ return new class extends Migration
         Schema::create('ordens', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedInteger('id_usuario');
-            //fecha de que? $table->timestamp('fecha');
-            $table->decimal('total', 10, 2);
+            $table->unsignedBigInteger('id_usuario');
             $table->enum('estado', [1,2,3]);
-            
+            $table->json('productos');
+
             $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
         });
