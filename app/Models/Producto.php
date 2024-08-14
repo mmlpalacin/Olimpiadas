@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nombre', 'descripcion', 'precio', 'categoria_id', 'stock'];
+
+    // Relaciones
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }
+
+    public function detallesOrden()
+    {
+        return $this->hasMany(DetalleOrden::class);
+    }
 }

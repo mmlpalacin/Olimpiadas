@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('detalle_ordens', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_orden');
-            $table->unsignedBigInteger('id_producto');
+            $table->unsignedBigInteger('orden_id');
+            $table->unsignedBigInteger('producto_id');
             $table->integer('cantidad');
-            $table->decimal('precio_final', 10, 2);
+            $table->decimal('precio', 10, 2);
             
-            $table->foreign('id_orden')->references('id')->on('ordens');
-            $table->foreign('id_producto')->references('id')->on('productos');
+            $table->foreign('orden_id')->references('id')->on('ordens');
+            $table->foreign('producto_id')->references('id')->on('productos');
             $table->timestamps();
         });
     }

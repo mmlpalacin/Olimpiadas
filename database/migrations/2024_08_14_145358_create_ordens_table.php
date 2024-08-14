@@ -11,11 +11,11 @@ return new class extends Migration
         Schema::create('ordens', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_usuario');
-            $table->enum('estado', [1,2,3]);
-            $table->json('productos');
+            $table->unsignedBigInteger('user_id');
+            $table->foreignId('producto_id')->constrained()->onDelete('cascade'); // Relación con la tabla products
+            $table->integer('cantidad')->default(1);
 
-            $table->foreign('id_usuario')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

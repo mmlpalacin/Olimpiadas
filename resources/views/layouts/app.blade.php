@@ -65,8 +65,8 @@
         });
     }
 
-function addToCart(productId) {
-        const product = products.find(p => p.id === productId);
+function addToCart(productoId) {
+        const product = products.find(p => p.id === productoId);
         if (product) {
             cart.push(product);
             cartCount.textContent = cart.length;
