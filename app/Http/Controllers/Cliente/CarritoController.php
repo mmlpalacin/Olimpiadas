@@ -22,60 +22,41 @@ class CarritoController extends Controller
 
     public function store(Request $request)
     {
-        $cartItem = orden::firstOrCreate(
+        $cart = orden::updateOrCreate(
             [
                 'user_id' => Auth::id(),
-                'producto_id' => $request->producto
+                'producto_id' => $request->producto_id
             ],
             [
                 'cantidad' => 0 // Valor inicial de cantidad
             ]
         );
     
-        // Incrementar la cantidad del producto en el carrito
-        $cartItem->cantidad += $request->input('cantidad', 1);
-        $cartItem->save();
+        $cart->cantidad += $request->input('cantidad', 1);
+        $cart->save();
 
-        return redirect()->route('cliente.carrito.index')->with('success', 'Producto agregado al cart.');
-    }
-
-    public function clear()
-    {
-        $cart = orden::where('user_id', Auth::id())->first();
-        if ($cart) {
-            $cart->productos = json_encode([]);
-            $cart->save();
-        }
-
-        return redirect()->route('cart.index')->with('success', 'Carrito vaciado.');
+        return redirect()->route('cliente.productos.index')->with('success', 'Producto agregado al carrito');
     }
 
     public function update(Request $request, $id)
-{
-    // Encontrar el ítem del carrito por ID
-    $cartItem = orden::where('user_id', Auth::id())->findOrFail($id);
+    {
+        $cart = orden::where('user_id', Auth::id())->findOrFail($id);
 
-    // Validar la cantidad recibida
-    $request->validate([
-        'cantidad' => 'required|integer|min:1'
-    ]);
+        $request->validate([
+            'cantidad' => 'required|integer|min:1'
+        ]);
 
-    // Actualizar la cantidad del ítem del carrito
-    $cartItem->cantidad = $request->input('cantidad');
-    $cartItem->save();
+        $cart->cantidad = $request->input('cantidad');
+        $cart->save();
 
-    // Redirigir de vuelta al carrito con un mensaje de éxito
-    return redirect()->route('cliente.carrito.index')->with('success', 'Producto agregado al cart.');
+        return redirect()->route('cliente.carrito.index')->with('success', 'Producto agregado al carrito.');
     }
+
     public function destroy($id)
-{
-    // Encontrar el ítem del carrito por ID
-    $cartItem = orden::where('user_id', Auth::id())->findOrFail($id);
+    {
+        $cart = orden::where('user_id', Auth::id())->findOrFail($id);
+        $cart->delete();
 
-    // Eliminar el ítem del carrito
-    $cartItem->delete();
-
-    // Redirigir de vuelta al carrito con un mensaje de éxito
-    return redirect()->route('cliente.carrito.index')->with('success', 'Producto eliminado del carrito.');
-}
+        return redirect()->route('cliente.carrito.index')->with('success', 'Producto eliminado del carrito.');
+    }
 }

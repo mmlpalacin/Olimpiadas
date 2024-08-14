@@ -4,7 +4,7 @@
 <div class="container">
     <h2>Carrito de Compras</h2>
 
-    @if(session('success')))
+    @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
@@ -29,7 +29,7 @@
                         <td>{{ $item->producto->nombre }}</td>
                         <td>${{ number_format($item->producto->precio, 2) }}</td>
                         <td>
-                            <form action="{{ route('cliente.carrito.update', $item->id) }}" method="POST">)<!--no toques-->
+                            <form action="{{ route('cliente.carrito.update', $item->id) }}" method="POST"><!--no toques-->
                                 @csrf
                                 @method('PUT')
                                 <input type="number" name="cantidad" value="{{ $item->cantidad }}" min="1" class="form-control" style="width: 70px;">
