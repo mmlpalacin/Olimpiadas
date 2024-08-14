@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.random')
 @section('title', 'Inicio')
 @section('content')
     <header>
