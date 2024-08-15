@@ -17,7 +17,11 @@
     </div>
     </a>
 
-    @yield('personalizado')
+    @can('admin.users.index')
+    <a href="{{ route('admin.users.index') }}">
+        Registro de Usuarios
+    </a>
+    @endcan
 
     <div class="hidden sm:flex sm:items-center sm:ms-6">
     <div class="ms-3 relative">

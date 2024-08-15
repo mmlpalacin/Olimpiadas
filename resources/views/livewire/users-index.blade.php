@@ -1,7 +1,7 @@
 <div>
     <div class="card-header">
         <br>
-        <input type="text" wire:model.live="search" class="form-control" placeholder="Ingrese titulo del anuncio...">
+        <input type="text" wire:model.live="search" class="form-control" placeholder="Ingrese nombre de usuario o mail...">
         <br>
     </div>
     @if ($users->count())

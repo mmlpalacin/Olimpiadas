@@ -1,46 +1,28 @@
-@props(['title' => __('Confirm Password'), 'content' => __('For your security, please confirm your password to continue.'), 'button' => __('Confirm')])
+<x-guest-layout>
+    <x-authentication-card>
+        <x-slot name="logo">
+            <x-authentication-card-logo />
+        </x-slot>
 
-@php
-    $confirmableId = md5($attributes->wire('then'));
-@endphp
-
-<span
-    {{ $attributes->wire('then') }}
-    x-data
-    x-ref="span"
-    x-on:click="$wire.startConfirmingPassword('{{ $confirmableId }}')"
-    x-on:password-confirmed.window="setTimeout(() => $event.detail.id === '{{ $confirmableId }}' && $refs.span.dispatchEvent(new CustomEvent('then', { bubbles: false })), 250);"
->
-    {{ $slot }}
-</span>
-
-@once
-<x-dialog-modal wire:model.live="confirmingPassword">
-    <x-slot name="title">
-        {{ $title }}
-    </x-slot>
-
-    <x-slot name="content">
-        {{ $content }}
-
-        <div class="mt-4" x-data="{}" x-on:confirming-password.window="setTimeout(() => $refs.confirmable_password.focus(), 250)">
-            <x-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Password') }}" autocomplete="current-password"
-                        x-ref="confirmable_password"
-                        wire:model="confirmablePassword"
-                        wire:keydown.enter="confirmPassword" />
-
-            <x-input-error for="confirmable_password" class="mt-2" />
+        <div class="mb-4 text-sm text-gray-600">
+            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
         </div>
-    </x-slot>
 
-    <x-slot name="footer">
-        <x-secondary-button wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
-            {{ __('Cancel') }}
-        </x-secondary-button>
+        <x-validation-errors class="mb-4" />
 
-        <x-button class="ms-3" dusk="confirm-password-button" wire:click="confirmPassword" wire:loading.attr="disabled">
-            {{ $button }}
-        </x-button>
-    </x-slot>
-</x-dialog-modal>
-@endonce
+        <form method="POST" action="{{ route('password.confirm') }}">
+            @csrf
+
+            <div>
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" autofocus />
+            </div>
+
+            <div class="flex justify-end mt-4">
+                <x-button class="ms-4">
+                    {{ __('Confirm') }}
+                </x-button>
+            </div>
+        </form>
+    </x-authentication-card>
+</x-guest-layout>

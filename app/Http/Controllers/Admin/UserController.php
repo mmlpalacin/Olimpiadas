@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use app\Models\User;
+use App\Models\User;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -35,13 +35,13 @@ class UserController extends Controller
             $user->roles()->sync($request->role);
         }
 
-        return redirect()->route('admin.users.index')->with('info','Se asignó el rol con exito');
+        return redirect()->route('admin.users.index')->with('success','Se asignó el rol con exito');
     }
     
     public function destroy(user $user)
     {
         $user->delete();
 
-        return redirect()->route('admin.users')->with('info','El usuario se elimino con exito');
+        return redirect()->route('admin.users.index')->with('success','El usuario se elimino con exito');
     }
 }

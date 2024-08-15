@@ -13,8 +13,7 @@
             <!-- Token Name -->
             <div class="col-span-6 sm:col-span-4">
                 <x-label for="name" value="{{ __('Token Name') }}" />
-                <x-input id="name" type="text" class="mt-1 block w-full" wire:model="createApiTokenForm.name" autofocus />
-                <x-input-error for="name" class="mt-2" />
+                <x-input id="name" type="text" class="mt-1 block w-full" wire:model="createApiTokenForm.name" :for="'name'" autofocus/>
             </div>
 
             <!-- Token Permissions -->
@@ -112,9 +111,9 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-secondary-button wire:click="$set('displayingToken', false)" wire:loading.attr="disabled">
+            <x-button wire:click="$set('displayingToken', false)" wire:loading.attr="disabled">
                 {{ __('Close') }}
-            </x-secondary-button>
+            </x-button>
         </x-slot>
     </x-dialog-modal>
 
@@ -136,9 +135,9 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-secondary-button wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
+            <x-button wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-secondary-button>
+            </x-button>
 
             <x-button class="ms-3" wire:click="updateApiToken" wire:loading.attr="disabled">
                 {{ __('Save') }}
@@ -157,9 +156,9 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-secondary-button wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
+            <x-button wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-secondary-button>
+            </x-button>
 
             <x-danger-button class="ms-3" wire:click="deleteApiToken" wire:loading.attr="disabled">
                 {{ __('Delete') }}

@@ -54,9 +54,7 @@
 
                         <x-input id="code" type="text" name="code" class="block mt-1 w-1/2" inputmode="numeric" autofocus autocomplete="one-time-code"
                             wire:model="code"
-                            wire:keydown.enter="confirmTwoFactorAuthentication" />
-
-                        <x-input-error for="code" class="mt-2" />
+                            wire:keydown.enter="confirmTwoFactorAuthentication" for="code" />
                     </div>
                 @endif
             @endif
@@ -86,9 +84,9 @@
             @else
                 @if ($showingRecoveryCodes)
                     <x-confirms-password wire:then="regenerateRecoveryCodes">
-                        <x-secondary-button class="me-3">
+                        <x-button class="me-3">
                             {{ __('Regenerate Recovery Codes') }}
-                        </x-secondary-button>
+                        </x-button>
                     </x-confirms-password>
                 @elseif ($showingConfirmation)
                     <x-confirms-password wire:then="confirmTwoFactorAuthentication">
@@ -98,17 +96,17 @@
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="showRecoveryCodes">
-                        <x-secondary-button class="me-3">
+                        <x-button class="me-3">
                             {{ __('Show Recovery Codes') }}
-                        </x-secondary-button>
+                        </x-button>
                     </x-confirms-password>
                 @endif
 
                 @if ($showingConfirmation)
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">
-                        <x-secondary-button wire:loading.attr="disabled">
+                        <x-button wire:loading.attr="disabled">
                             {{ __('Cancel') }}
-                        </x-secondary-button>
+                        </x-button>
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">

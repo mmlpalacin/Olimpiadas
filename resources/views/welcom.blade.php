@@ -5,10 +5,10 @@
         @auth
             @include('navigation-menu')
         @else
-            <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"> Log in </a>
+            <a class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]" href="{{ route('login') }}"> Ingresar </a>
 
             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"> Register </a>
+                <a class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]" href="{{ route('register') }}"> Registrarse </a>
             @endif
         @endauth
     @endif
@@ -42,7 +42,7 @@
         </div>
         <x-button type="submit">Aplicar filtros</x-button>
     </form>
-
+<x-section-border />
     <div class="product-list">
         @if ($products->isNotEmpty())
             @foreach($products as $product)

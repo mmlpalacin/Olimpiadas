@@ -33,16 +33,14 @@
                                 placeholder="{{ __('Password') }}"
                                 x-ref="password"
                                 wire:model="password"
-                                wire:keydown.enter="deleteUser" />
-
-                    <x-input-error for="password" class="mt-2" />
+                                wire:keydown.enter="deleteUser" for="password" />
                 </div>
             </x-slot>
 
             <x-slot name="footer">
-                <x-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                <x-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
                     {{ __('Cancel') }}
-                </x-secondary-button>
+                </x-button>
 
                 <x-danger-button class="ms-3" wire:click="deleteUser" wire:loading.attr="disabled">
                     {{ __('Delete Account') }}

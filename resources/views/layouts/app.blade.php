@@ -29,8 +29,6 @@
         .price-range { margin-bottom: 15px; }
         .price-range label { display: block; margin: 5px 0; }
         .price-range input { width: calc(50% - 10px); padding: 5px; margin-right: 10px; border-radius: 4px; border: 1px solid #ddd; }
-        .price-range x-button { background-color: #ff6600; color: #fff; border: none; padding: 10px; border-radius: 4px; cursor: pointer; }
-        .price-range x-button:hover { background-color: #e65c00; }
         .categories ul { display: flex; padding: 0; list-style: none; }
         .categories ul li { margin-bottom: 10px; margin-right: 10px; }
         .categories input[type="radio"] { margin-right: 5px; }
@@ -46,7 +44,7 @@
     @livewireStyles
 </head>
 <body>
-    <nav style="background-color: rgb(3, 53, 3); display: flex; align-items: center; justify-content: space-between;">@yield('nav')</nav>
+    <nav style="background-color: rgb(3, 53, 3); display: flex;  color: #fff; align-items: center; justify-content: space-between;">@yield('nav')</nav>
     <div class="mt-4 ml-4">
         @yield('content')
     </div>

@@ -76,16 +76,14 @@
                                 placeholder="{{ __('Password') }}"
                                 x-ref="password"
                                 wire:model="password"
-                                wire:keydown.enter="logoutOtherBrowserSessions" />
-
-                    <x-input-error for="password" class="mt-2" />
+                                wire:keydown.enter="logoutOtherBrowserSessions" for="password" />
                 </div>
             </x-slot>
 
             <x-slot name="footer">
-                <x-secondary-button wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled">
+                <x-button wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled">
                     {{ __('Cancel') }}
-                </x-secondary-button>
+                </x-button>
 
                 <x-button class="ms-3"
                             wire:click="logoutOtherBrowserSessions"

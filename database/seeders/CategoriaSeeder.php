@@ -8,10 +8,12 @@ use Illuminate\Database\Seeder;
 
 class CategoriaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
-    {Categoria::factory()->count(10)->create();
+    {
+        /*DB::table('categorias')->insert([
+            'nombre' => ' ',
+            'descripcion' => ''
+            ]);*/
+        Categoria::factory()->count(10)->create();
     }
 }
