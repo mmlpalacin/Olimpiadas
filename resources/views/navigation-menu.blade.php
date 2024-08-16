@@ -5,16 +5,15 @@
         $cartCount = App\Models\orden::where('user_id', Auth::id())->sum('cantidad');
     @endphp
 
-    <a href="{{ url('/') }}" class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"> Inicio </a>
+    <a href="{{ url('/') }}"> Inicio </a>
     <form method="GET" action="{{ route('cliente.productos.index') }}">
-        <input type="text" id="search-bar" name="search" placeholder="Buscar producto..." value="{{ request('search') }}">
-        <input type="image" src="/logo/loguito.png" height="20px" id="search-button" alt="Buscar">
+        <input type="text" id="search-bar" name="search" placeholder="Buscar productos...">
     </form>
     <a href="{{ route('cliente.carrito.index') }}">
-    <div class="cart-info">
-        <span>Carrito:</span>
-        <span id="cart-count">{{ $cartCount }}</span>
-    </div>
+        <div class="cart-info">
+            <span>Carrito:</span>
+            <span id="cart-count">{{ $cartCount }}</span>
+        </div>
     </a>
 
     @can('admin.users.index')
@@ -22,6 +21,15 @@
         Registro de Usuarios
     </a>
     @endcan
+
+
+    <a href="{{ route('productos.index') }}">
+        Productos
+    </a>
+  
+    <a href="{{ route('payment.index') }}">
+        Metodos de Pago
+    </a>
 
     <div class="hidden sm:flex sm:items-center sm:ms-6">
     <div class="ms-3 relative">
@@ -65,15 +73,6 @@
         </x-slot>
     </x-dropdown>
     </div>
-    </div>
-
-    <!--Logo-->
-    <div class="flex">        
-        <div class="flex items-right shrink-0 me-3">
-            <a href="{{ route('dashboard') }}">
-                <x-authentication-card-logo class="block h-10 w-10" />
-            </a>
-        </div>
     </div>
 
     <!-- Hamburger -->

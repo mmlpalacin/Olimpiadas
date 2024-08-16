@@ -18,7 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->integer('cantidad');
             $table->decimal('precio', 10, 2);
-            
+            $table->unsignedBigInteger('metodo_id');
+
+            $table->foreign('metodo_id')->references('id')->on('payment_methods');
             $table->foreign('orden_id')->references('id')->on('ordens');
             $table->foreign('producto_id')->references('id')->on('productos');
             $table->timestamps();

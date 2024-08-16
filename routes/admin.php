@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductoControllerTwo;
-
+use App\Http\Controllers\Admin\PaymentMethodController;
 
 route::resource('/admin/users', UserController::class)->names('admin.users')->middleware('can:admin.users.index');
 
@@ -17,9 +17,6 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/productos/create', function () {
-    return view('index'); // Retorna la vista Blade
-})->name('productos.create');
+Route::resource('/productos', ProductoControllerTwo::class)->names('productos');
 
-// Ruta para manejar el formulario POST
-Route::get('/productos', [ProductoControllerTwo::class, 'store'])->name('productos.store');
+Route::resource('/payment-methods', PaymentMethodController::class)->names('payment');

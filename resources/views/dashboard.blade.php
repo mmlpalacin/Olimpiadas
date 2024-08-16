@@ -4,7 +4,7 @@
     @include('navigation-menu')
 @endsection
 @section('content')
-    <div class="container d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-column justify-content-center align-items-center">
         @if (Auth::user()->profile_photo_path)
             <div class="shrink-0 me-3">
                 <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />

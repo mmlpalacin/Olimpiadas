@@ -22,40 +22,41 @@
         </div>
     @endif
     <form method="GET" action="{{ route('cliente.productos.index') }}" class="filter-container">
-        <h2>Filtros</h2>
-        <div class="price-range">
-            <label>Precio mínimo:</label>
-            <input type="number" name="min_price" placeholder="0" step="0.01" value="{{ request('min_price') }}">
-            <label for="max-price">Precio máximo:</label>
-            <input type="number" name="max_price" placeholder="1000" step="0.01" value="{{ request('max_price') }}">
-        </div>
-        <div class="categories">
+        <aside>
+            <h2>Filtros</h2>
+            <div class="price-range">
+                <label for="min-price">Precio Mínimo:</label>
+                <input type="number" name="min_price" placeholder="0">
+                <label for="max-price">Precio Máximo:</label>
+                <input type="number" name="max_price" placeholder="1000">
+            </div>
+            <div class="categories">
             <h3>Categorías</h3>
             <ul>
                 @foreach ($categories as $category)
                     <li>
-                        <input type="radio" id="category-{{ $category->id }}" name="category" value="{{ $category->id }}" {{ request('category') == $category->id ? 'checked' : '' }}>
-                        <label for="category-{{ $category->id }}">{{ $category->nombre }}</label>
+                        <input type="radio" name="category" value="{{ $category->id }}" {{ request('category') == $category->id ? 'checked' : '' }}>
+                        <label for="category_{{ $category->id }}">{{ $category->nombre }}</label>
                     </li>
                 @endforeach
             </ul>
-        </div>
+            </div>
+        </aside>
         <x-button type="submit">Aplicar filtros</x-button>
     </form>
-<x-section-border />
-    <div class="product-list">
+
+    <section class="product-list">
         @if ($products->isNotEmpty())
             @foreach($products as $product)
                 <div class="product-item">
-                    <!--<img src="{{ $product['image'] }}" alt="{{ $product['nombre'] }}">-->
                     <div class="product-info">
                         <h2>{{ $product['nombre'] }}</h2>
                         <p>Precio: ${{ $product['precio'] }}</p>
                         <form method="POST" action="{{ route('cliente.carrito.store') }}">
                             @csrf
                             <input type="hidden" name="producto_id" value="{{ $product->id }}">
-                            <x-input type="number" name="cantidad" value="1" min="1" step="1"></x-input>
-                            <x-button type="submit" class="add-to-cart">Añadir al carrito</x-button>
+                            <input type="number" name="cantidad" value="1" min="1" step="1">
+                            <x-button type="submit">Añadir al carrito</x-button>
                         </form>
                     </div>
                 </div>
@@ -63,5 +64,5 @@
         @else
             No se encontraron productos
         @endif       
-    </div>
+    </section>
 @endsection
