@@ -68,11 +68,6 @@ label { display: block; margin-bottom: 4px; font-weight: bold; font-size: 14px; 
         .descripcion__detalles { line-height: 1.5; }
         .product-advice { margin-bottom: 20px; text-align: center; }
         .product-advice p { font-size: 18px; font-weight: bold; color: #333; margin: 0; }
-        .form-container, .qr-container { display: none; margin-top: 20px; }
-        .form-container label, .qr-container img { display: block; margin-top: 10px; }
-        .form-container input, .qr-container { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; }
-        .form-container button { background-color: #0070f3; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; }
-        .form-container button:hover { background-color: #005bb5; }
         .payment-code { display: none; margin-top: 20px; padding: 10px; background-color: #dff0d8; border: 1px solid #d6e9c6; border-radius: 4px; }
         .error-message { color: red; margin-top: 10px; display: none; }
         @media (max-width: 768px) {

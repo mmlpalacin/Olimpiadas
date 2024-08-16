@@ -77,7 +77,7 @@
                             <td>
                                     <!-- Botones para redirección -->
                                     <div class="mt-3">
-                                        <a href="{{ route('procesarPago.index') }}" class="btn btn-success">Finalizar Compra</a>
+                                        <a href="{{ route('envio.index') }}" class="btn btn-success">Finalizar Compra</a>
                                         <a href="{{ route('cliente.productos.index') }}" class="btn btn-secondary">Continuar Comprando</a>
                                     </div>
                             </td>
