@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
             $table->string('Metodo')->unique();
-            $table->string('comprobante');
+            $table->string('descripcion')->nullable();
 
             $table->timestamps();
         });

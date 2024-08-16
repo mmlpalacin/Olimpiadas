@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>Metodo</th>
-                    <th>Titular</th>
+                    <th>Descripcion</th>
                     <th colspan="2"></th>
                 </tr>
             </thead>
@@ -24,7 +24,7 @@
                 @foreach ($paymentMethods as $method)
                     <tr>
                         <td>{{ $method->Metodo }}</td>
-                        <td>{{ $method->Nombre_titular }}</td>
+                        <td>{{ $method->descripcion }}</td>
                         <td width="10px">
                             <form action="{{ route('payment.destroy', $method->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar el producto {{ $method->Metodo }}?');">
                                 @csrf

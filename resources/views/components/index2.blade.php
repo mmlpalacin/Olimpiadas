@@ -41,18 +41,11 @@
                 </section>
 
                 <div class="col-span-6 sm:col-span-4 flex items-center">
-                    <div x-data="{ photoName: null, photoPreview: null }" class="flex items-center">
-                        <!-- Hidden File Input -->
-                        <input type="file" id="photo" name="photo" required />
-
-                        <!-- Photo Preview -->
-                        <div class="mt-2 ml-2" x-show="photoPreview">
-                            <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
-                                x-bind:style="'background-image: url(' + photoPreview + ');'">
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                    <label for="archivo">Subir Comprobante:</label>
+                    <input type="file" name="archivo" id="archivo">
+                    @error('archivo')
+                        <p>{{ $message }}</p>
+                    @enderror
                 *no funciona
                 <!-- Save Button -->
                 <button type="submit">Enviar Comprobante</button>

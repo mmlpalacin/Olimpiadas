@@ -22,14 +22,8 @@
         <x-label for="metodo">Método:</x-label>
         <input type="text" id="metodo" name="metodo" required>
 
-        <x-label for="nombre_titular">Nombre del Titular:</x-label>
-        <input type="text" id="nombre_titular" name="nombre_titular" required>
-
-        <x-label for="fecha_venc">Fecha de Vencimiento:</x-label>
-        <input type="date" id="fecha_venc" name="fecha_venc" required>
-
-        <x-label for="cvv">CVV:</x-label>
-        <input type="number" id="cvv" name="cvv" required>
+        <x-label for="Descripcion">Descripcion:</x-label>
+        <input type="text" id="Descripcion" name="descripcion" required>
 
         <x-button type="submit">Guardar</x-button>
     </form>

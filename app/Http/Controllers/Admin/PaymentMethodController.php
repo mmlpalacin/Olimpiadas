@@ -24,9 +24,7 @@ class PaymentMethodController extends Controller
     {
         $validatedData = $request->validate([
             'metodo' => 'required|unique:payment_methods,metodo',
-            'nombre_titular' => 'required|string|max:50',
-            'fecha_venc' => 'required|date', // formato es mes/año
-            'cvv' => 'required|digits:3',
+            'descripcion' =>'nullable'
         ]);
 
         PaymentMethod::create($validatedData);
