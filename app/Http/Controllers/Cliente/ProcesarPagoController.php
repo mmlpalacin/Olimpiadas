@@ -34,7 +34,7 @@ class ProcesarPagoController extends Controller
                 'metodo_id' => $request->metodo_id,
             ]);
 
-            return redirect()->route('cliente.producto.index')->with('mensaje', 'Pago procesado con éxito.');
+            return redirect()->route('cliente.productos.index')->with('mensaje', 'Pago procesado con éxito.');
         } else {
             return back()->withErrors(['image' => 'El archivo no se pudo guardar.']);
         }

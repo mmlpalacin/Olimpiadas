@@ -14,11 +14,11 @@ class Metodosseeder extends Seeder
     public function run(): void
     {
         DB::table('payment_methods')->insert([
-            'nombre' => 'Ripsa',
+            'Metodo' => 'Ripsa',
             'descripcion' => 'Ropa Unisex Para Gente Sin Ropa',
             ]);
         DB::table('payment_methods')->insert([
-            'nombre' => 'Mercado PAgo',
+            'Metodo' => 'Mercado PAgo',
             'descripcion' => 'Dispositivos electronicos para la comodidad de su hogar y dia a dia',
             ]);
     }
