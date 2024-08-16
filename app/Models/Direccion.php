@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Direccion extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'codigo_postal',
+        'direccion',
+        'pais',
+        'usuario_id',
+    ];
     public function user()
     {
         return $this->belongsTo(User::class);

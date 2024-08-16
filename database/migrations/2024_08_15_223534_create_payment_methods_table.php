@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-
             $table->string('Metodo')->unique();
-            $table->string('Nombre_titular', 50)->nullable();
-            $table->string('fecha_venc', 20)->nullable();
-            $table->integer('CVV')->nullable();
+            $table->string('comprobante');
 
             $table->timestamps();
         });

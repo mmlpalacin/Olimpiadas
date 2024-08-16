@@ -16,8 +16,6 @@ return new class extends Migration
 
             $table->unsignedBigInteger('usuario_id');
             $table->string('direccion', 255);
-            $table->string('ciudad', 100);
-            $table->string('estado', 100);
             $table->string('codigo_postal', 20);
             $table->string('pais', 100);
             

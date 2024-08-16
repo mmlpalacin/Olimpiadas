@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Actualizar Producto')
+@section('title', 'Productos')
 @section('nav')
     @include('navigation-menu')
 @endsection

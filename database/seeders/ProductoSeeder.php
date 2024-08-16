@@ -12,73 +12,73 @@ class ProductoSeeder extends Seeder
         DB::table('productos')->insert([
             'nombre' => 'Smartphone XYZ',
             'precio' => '299.99' ,
-            'descripcion' => 'hgghh',
+            'descripcion' => '',
             'stock' => '49',
-            'Categoria_id' => '1',
+            'Categoria_id' => '2',
         ]);
         DB::table('productos')->insert([
             'nombre' => 'Laptop ABC',
             'precio' => '799.99' ,
-            'descripcion' => 'hgfhfh',
+            'descripcion' => '',
             'stock' => '434',
             'Categoria_id' => '2',
             ]);
         DB::table('productos')->insert([
             'nombre' => 'Auriculares Bluetooth',
             'precio' => '59.99' ,
-            'descripcion' => 'gfhfgh',
+            'descripcion' => '',
             'stock' => '4',
-            'Categoria_id' => '3',
+            'Categoria_id' => '2',
         ]);
         DB::table('productos')->insert([
             'nombre' => 'Camara Digital',
             'precio' => '499.99' ,
-            'descripcion' => 'hgfhf',
+            'descripcion' => '',
             'stock' => '5',
-            'Categoria_id' => '3',
+            'Categoria_id' => '2',
 
             ]);
         DB::table('productos')->insert([
             'nombre' => 'Chaqueta de Cuero',
             'precio' => '119.99' ,
-            'descripcion' => 'hgfhfgh',
+            'descripcion' => '',
             'stock' => '57',
-            'Categoria_id' => '2',
+            'Categoria_id' => '1',
             ]);
         DB::table('productos')->insert([
             'nombre' => 'Zapatillas Deportivas',
             'precio' => '89.99' ,
-            'descripcion' => 'hgfhghf',
+            'descripcion' => '',
             'stock' => '9',
-            'Categoria_id' => '3',
+            'Categoria_id' => '1',
         ]);
         DB::table('productos')->insert([
             'nombre' => 'Reloj de Pulsera',
             'precio' => '149.99' ,
-            'descripcion' => 'hfghfh',
+            'descripcion' => '',
             'stock' => '94',
             'Categoria_id' => '1',
         ]);
         DB::table('productos')->insert([
             'nombre' => 'Cinturo De Cuero',
             'precio' => '39.99' ,
-            'descripcion' => 'fghgfhfgh',
+            'descripcion' => '',
             'stock' => '98',
-            'Categoria_id' => '2',
+            'Categoria_id' => '1',
         ]);
         DB::table('productos')->insert([
             'nombre' => 'Juguete Educativo',
             'precio' => '29.99' ,
-            'descripcion' => 'hgfhfgh',
+            'descripcion' => '',
             'stock' => '65',
             'Categoria_id' => '3',
         ]);
         DB::table('productos')->insert([
             'nombre' => 'Peluche Gigante',
             'precio' => '79.99' ,
-            'descripcion' => 'ghfhgfh',
+            'descripcion' => '',
             'stock' => '69',
-            'Categoria_id' => '1',
+            'Categoria_id' => '3',
         ]);
     }
 }
