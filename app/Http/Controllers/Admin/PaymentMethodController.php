@@ -20,7 +20,6 @@ class PaymentMethodController extends Controller
         return view('admin.create');
     }
 
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([

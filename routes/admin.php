@@ -17,6 +17,6 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::resource('/productos', ProductoControllerTwo::class)->names('productos');
+Route::resource('/productos', ProductoControllerTwo::class)->names('productos')->middleware('can:productos.index');
 
-Route::resource('/payment-methods', PaymentMethodController::class)->names('payment');
+Route::resource('/payment-methods', PaymentMethodController::class)->names('payment')->middleware('can:payment.index');

@@ -22,15 +22,18 @@
     </a>
     @endcan
 
-
+    @can('productos.index')
     <a href="{{ route('productos.index') }}">
         Productos
     </a>
-  
+    @endcan
+
+    @can('payment.index')
     <a href="{{ route('payment.index') }}">
         Metodos de Pago
     </a>
-
+    @endcan
+    
     <div class="hidden sm:flex sm:items-center sm:ms-6">
     <div class="ms-3 relative">
     <x-dropdown align="left" width="60">

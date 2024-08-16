@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'mili@gmail.com',
             'password' => '12345678'
         ])->assignRole('admin');
-        User::factory(10)->create();
+        $users = User::factory(10)->create();
+
+        foreach ($users as $user){
+            $user->assignRole('cliente');
+        }
     }
 }
